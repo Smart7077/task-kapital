@@ -9,17 +9,17 @@ import org.springframework.web.bind.annotation.RestController;
 import uz.com.kapital.service.CustomerService;
 
 @RestController
-@RequestMapping("/api/customer")
+@RequestMapping("/customer")
 public class CustomerController {
     @Autowired
     CustomerService customerService;
 
-    @GetMapping("/withoutOrders")
+    @GetMapping("/customers_without_orders")
     public HttpEntity<?> getWithoutOrders() {
         return ResponseEntity.ok(customerService.getCustomerWithoutOrder());
     }
 
-    @GetMapping("/lastOrderYear")
+    @GetMapping("/customers_last_orders")
     public HttpEntity<?> getCustomerLastOrderYear() {
         return ResponseEntity.ok(customerService.getCustomerLastOrder());
     }

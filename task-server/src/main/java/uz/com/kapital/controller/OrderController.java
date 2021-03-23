@@ -11,7 +11,7 @@ import uz.com.kapital.repository.OrderRepository;
 import uz.com.kapital.service.OrderService;
 
 @RestController
-@RequestMapping("/api/order")
+@RequestMapping("/order")
 public class OrderController {
 
     @Autowired
@@ -19,13 +19,13 @@ public class OrderController {
     @Autowired
     OrderRepository orderRepository;
 
-    @GetMapping("/{order_id}")
+    @GetMapping("/details/{order_id}")
     public HttpEntity<?> getOrderList(@PathVariable Integer order_id) {
 
         return ResponseEntity.ok(orderService.getOrderById(order_id));
     }
 
-    @GetMapping("/withoutDetil")
+    @GetMapping("/orders_without_details")
     public HttpEntity<?> getOrder() {
         return ResponseEntity.ok(orderService.getOrderWithoutDetil());
     }

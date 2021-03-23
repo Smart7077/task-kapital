@@ -11,7 +11,7 @@ import uz.com.kapital.repository.OrderRepository;
 import uz.com.kapital.service.InvoiceService;
 
 @RestController
-@RequestMapping("/api/invoice")
+@RequestMapping("/invoice")
 public class InvoiceController {
 
     @Autowired
@@ -21,12 +21,12 @@ public class InvoiceController {
     @Autowired
     OrderRepository orderRepository;
 
-    @GetMapping("/expiredInvoices")
+    @GetMapping("/expired_invoices")
     public HttpEntity<?> getExpiredInvoice() {
         return ResponseEntity.ok(invoiceService.getInvoices());
     }
 
-    @GetMapping("/wrongDateInvoices")
+    @GetMapping("/wrong_date_invoices")
     public HttpEntity<?> getWrongDateInvoices() {
         return ResponseEntity.ok(invoiceService.getInvoiceOrder());
     }

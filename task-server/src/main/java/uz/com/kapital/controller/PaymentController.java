@@ -11,7 +11,7 @@ import uz.com.kapital.repository.PaymentRepository;
 import uz.com.kapital.service.PaymentService;
 
 @RestController
-@RequestMapping("/api/payment")
+@RequestMapping("/payment")
 public class PaymentController {
 
     final
@@ -30,7 +30,7 @@ public class PaymentController {
         return ResponseEntity.status(response.isSuccess() ? HttpStatus.CREATED : HttpStatus.CONFLICT).body(response);
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/details/{id}")
     public HttpEntity<?> getPayment(@PathVariable Integer id) {
         Payment payment = paymentRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("GetPAYMENT"));
         return ResponseEntity.ok(paymentService.getPayment(payment));

@@ -14,7 +14,7 @@ import uz.com.kapital.repository.CategoryRepository;
 import uz.com.kapital.repository.ProductRepository;
 
 @RestController
-@RequestMapping("/api/category")
+@RequestMapping("/category")
 public class CategoryController {
 
     @Autowired
@@ -22,7 +22,7 @@ public class CategoryController {
     @Autowired
     ProductRepository productRepository;
 
-    @GetMapping
+    @GetMapping("/list")
     public HttpEntity<?> getCategoryList() {
         return ResponseEntity.ok(categoryRepository.findAll());
     }
