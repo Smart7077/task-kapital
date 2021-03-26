@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RestController;
 import uz.com.kapital.service.CustomerService;
 
 @RestController
-@RequestMapping("/customer")
 public class CustomerController {
     @Autowired
     CustomerService customerService;

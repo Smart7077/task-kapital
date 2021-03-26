@@ -12,7 +12,6 @@ import uz.com.kapital.repository.ProductRepository;
 import uz.com.kapital.service.ProductService;
 
 @RestController
-@RequestMapping("/product")
 public class ProductController {
 
     @Autowired
@@ -20,12 +19,12 @@ public class ProductController {
     @Autowired
     ProductService productService;
 
-    @GetMapping("/list")
+    @GetMapping("/product/list")
     public HttpEntity<?> getProducts() {
         return ResponseEntity.ok(productRepository.findAll());
     }
 
-    @GetMapping("/details/{product_id}")
+    @GetMapping("/product/details/{product_id}")
     public HttpEntity<?> getProducts(@PathVariable Integer product_id) {
         return ResponseEntity.ok(productRepository.findById(product_id).orElseThrow(() -> new ResourceNotFoundException("getProduct")));
     }

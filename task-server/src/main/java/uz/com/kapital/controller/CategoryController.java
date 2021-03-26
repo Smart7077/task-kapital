@@ -14,7 +14,6 @@ import uz.com.kapital.repository.CategoryRepository;
 import uz.com.kapital.repository.ProductRepository;
 
 @RestController
-@RequestMapping("/category")
 public class CategoryController {
 
     @Autowired
@@ -22,13 +21,13 @@ public class CategoryController {
     @Autowired
     ProductRepository productRepository;
 
-    @GetMapping("/list")
+    @GetMapping("/category/list")
     public HttpEntity<?> getCategoryList() {
         return ResponseEntity.ok(categoryRepository.findAll());
     }
 
-    @GetMapping("/{product_id}")
-        public HttpEntity<?> getCategoryById(@PathVariable Integer product_id) {
+    @GetMapping("/category/{product_id}")
+    public HttpEntity<?> getCategoryById(@PathVariable Integer product_id) {
         Product product = productRepository.findById(product_id).orElseThrow(() -> new ResourceNotFoundException("getProduct"));
         Category category = categoryRepository.getOne(product.getCategory().getId());
         return ResponseEntity.ok(category);

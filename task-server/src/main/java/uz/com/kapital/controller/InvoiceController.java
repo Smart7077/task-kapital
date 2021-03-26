@@ -11,7 +11,6 @@ import uz.com.kapital.repository.OrderRepository;
 import uz.com.kapital.service.InvoiceService;
 
 @RestController
-@RequestMapping("/invoice")
 public class InvoiceController {
 
     @Autowired
