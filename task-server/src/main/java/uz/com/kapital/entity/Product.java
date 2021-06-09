@@ -15,14 +15,14 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(length = 10)
+    @Column(length = 50)
     private String name;
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Category category;
 
-    @Column(length = 20)
-    private String decription;
+    @Column(length = 1024)
+    private String description;
 
     @Column(columnDefinition = "numeric(6,2)")
     private Double price;
