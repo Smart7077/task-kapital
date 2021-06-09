@@ -38,4 +38,5 @@ public class ProductController {
     public HttpEntity<?> getBulkProducts() {
         return ResponseEntity.ok(productRepository.getBulkProduct());
     }
+    //dsdsd
 }
